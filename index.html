@@ -2,17 +2,23 @@
   <head>
     <title></title>
     <script type="text/javascript" src="js/knockout-3.4.0.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
   </head>
   <body>
     <div>
+      <ul class="col-xs-2" data-bind="foreach: catList">
+        <li data-bind="text: name, click: $root.selectCat"></li>
+      </ul>
+    </div>
+    <div data-bind="with: currentCat()"  class="col-xs-10">
       <h2 data-bind="text: name"/></h2>
       <h4 data-bind="text: level"/></h4>
-      <img data-bind="attr: { src: source }, click: incrementCounter"></img>
+      <img data-bind="attr: { src: source }, click: $root.incrementCounter"></img>
       <p data-bind="text: clickCount"></p>
       <ul data-bind="foreach: nicknames">
         <li data-bind="text: nickname"></li>
       </ul>
     </div>
-    <script type="text/javascript" src="custom.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
   </body>
 </html>
